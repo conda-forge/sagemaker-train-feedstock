@@ -12,9 +12,12 @@ source:
   sha256: c70500f57d04896d0e79a41dc1a739df45a1b167a9026baf713c6fcaf849dda5
 
 build:
-  number: 0
+  number: 1
   noarch: python
-  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: |
+    ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    rm -f $SP_DIR/sagemaker/__init__.py
+    rm -rf $SP_DIR/sagemaker/__pycache__
 
 requirements:
   host:
