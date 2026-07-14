@@ -148,8 +148,8 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@aviruthen](https://github.com/aviruthen/)
 * [@mollyheamazon](https://github.com/mollyheamazon/)
 * [@mufaddal-rohawala](https://github.com/mufaddal-rohawala/)
 * [@nargokul](https://github.com/nargokul/)
-* [@aviruthen](https://github.com/aviruthen/)
 
