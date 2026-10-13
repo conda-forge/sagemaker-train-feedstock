@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "1.14.0"
+  version: "1.24.0"
 
 package:
   name: sagemaker-train
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/s/sagemaker-train/sagemaker_train-${{ version }}.tar.gz
-  sha256: caa3d1334dd3db930e0a4483e4b30de7f260a00ee04614b1c80d1f0e33dd3d3a
+  sha256: 627ce100092bfd2afc6c354f1ef28b11d4faec4014e02239e6fb58a3f526e9ed
 
 build:
   number: 0
@@ -27,7 +27,7 @@ requirements:
     - pip
   run:
     - python >=${{ python_min }}
-    - sagemaker-core >=2.5.0
+    - sagemaker-core >=2.24.0
     - sagemaker-mlflow >=0.0.1,<1.0.0
     - graphene >=3,<4
     - typing_extensions >=4.9.0
@@ -37,6 +37,13 @@ requirements:
     - jinja2 >=3.0,<4.0
     - mlflow >=3.0.0,<4.0.0
     - nest-asyncio >=1.5.0
+  # databricks-sdk (pulled transitively via mlflow) forbids protobuf 5.26-5.28.* and
+  # 5.29.0-4; without this the solver backtracks to protobuf 5.28.3 (because the
+  # libprotobuf global pin is >=7, which databricks-sdk also forbids) and `pip check`
+  # fails. Constrain protobuf to the databricks-sdk-compatible window. protobuf is not
+  # a direct dependency, so this is a run_constraints (soft) entry, not a run dep.
+  run_constraints:
+    - protobuf >=5.29.5,<7
 
 tests:
   - python:
