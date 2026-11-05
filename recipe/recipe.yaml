@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "1.27.0"
+  version: "1.29.0"
 
 package:
   name: sagemaker-train
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/s/sagemaker-train/sagemaker_train-${{ version }}.tar.gz
-  sha256: 53aca8c0b9009ae17a7b2af52eee59e9e5d6b9675964b35f426c1b45cd5cbb79
+  sha256: cb2930c03f3a90f5b4c85d290ed547a64c14c76f41ad0c3d3fa60af4dad1a976
 
 build:
   number: 0
